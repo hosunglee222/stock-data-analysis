@@ -3,6 +3,8 @@ package com.gachon.data_analysis.service;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +24,8 @@ public class StockService {
     private final StockRepository stockRepository;
 
     public List<Stock> getTop10Stocks(){
-        return stockRepository.findTop10Stocks();
+        Pageable pageable = PageRequest.of(0, 10);  // 첫 페이지에서 10개 항목 가져오기
+        return stockRepository.findTop10Stocks(pageable);
     }
 
     public StockInfo searchStockInfo(String stockName) {

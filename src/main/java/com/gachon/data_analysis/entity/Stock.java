@@ -15,7 +15,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class Stock {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String ticker; // 종목 코드
