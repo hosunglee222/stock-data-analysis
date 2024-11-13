@@ -10,6 +10,7 @@ import lombok.Getter;
 @Getter
 @Builder
 public class StockDTO {
+    private Long id;
     private String ticker;
     private String name;
     private BigDecimal price;
@@ -19,6 +20,7 @@ public class StockDTO {
 
     public static StockDTO fromDomain(StockInfo stock) {
         return StockDTO.builder()
+                .id(stock.getId())
                 .ticker(stock.getTicker())
                 .name(stock.getName())
                 .price(stock.getPrice())
