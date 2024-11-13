@@ -39,4 +39,9 @@ public class Stock {
                 .downVotes(this.downVotes)
                 .build();
     }
+
+    public void voteStock(boolean isRecommend){
+        if (isRecommend) upVotes++;
+        else downVotes++;
+    }
 }
