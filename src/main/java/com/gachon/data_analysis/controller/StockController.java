@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gachon.data_analysis.dto.RecommendStockDTO;
+import com.gachon.data_analysis.entity.Stock;
 import com.gachon.data_analysis.service.StockService;
 
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,10 @@ public class StockController {
 
     @GetMapping("/top10")
     public List<RecommendStockDTO> getTop10Stocks(){
-        return null;
+        List<Stock> stocks = stockService.getTop10Stocks();
+
+        return stocks.stream()
+                .map(RecommendStockDTO::fromEntity)
+                .toList();
     }
 }
