@@ -1,0 +1,17 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_batch_fetch_size: 100
+        format_sql: true
+        show_sql: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DATABASE_HOST:localhost}:${DATABASE_PORT:3306}/stock_data?characterEncoding=UTF-8&serverTimezone=Asia/Seoul&autoReconnect=true
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    data-source-properties:
+      rewrite-batched-statements: true
