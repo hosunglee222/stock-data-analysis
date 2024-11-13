@@ -42,7 +42,7 @@ public class StockController {
 
     @PostMapping("/{stockId}/vote")
     public ResponseDto<String> voteStock(@PathVariable Long stockId, @RequestParam boolean isRecommend){
-
+        stockService.voteStock(stockId, isRecommend);
         String message = isRecommend ? "추천 완료했습니다." : "추천 취소했습니다.";
         return ResponseDto.onSuccess(message);
     }

@@ -39,4 +39,11 @@ public class StockService {
 
         return stock.toStockInfo(stockPrice);
     }
+
+    @Transactional
+    public void voteStock(Long stockId, boolean isRecommend) {
+        Stock stock = stockRepository.findById(stockId)
+                .orElseThrow(() -> new IllegalArgumentException("Stock not found"));
+        stock.voteStock(isRecommend);
+    }
 }
