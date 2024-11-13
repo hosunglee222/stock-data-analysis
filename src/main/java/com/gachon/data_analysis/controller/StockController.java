@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gachon.data_analysis.domain.StockInfo;
 import com.gachon.data_analysis.dto.RecommendStockDTO;
 import com.gachon.data_analysis.dto.StockDTO;
 import com.gachon.data_analysis.entity.Stock;
@@ -31,7 +32,8 @@ public class StockController {
     }
 
     @GetMapping("/search/{stockName}")
-    public List<StockDTO> searchStock(@PathVariable String stockName){
-        return null;
+    public StockDTO searchStock(@PathVariable String stockName){
+        StockInfo stock = stockService.searchStockInfo(stockName);
+        return StockDTO.fromDomain(stock);
     }
 }
