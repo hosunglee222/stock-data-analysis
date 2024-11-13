@@ -1,6 +1,11 @@
 package com.gachon.data_analysis.entity;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.*;
+
+import com.gachon.data_analysis.domain.StockInfo;
+
 import lombok.*;
 
 @Entity
@@ -22,4 +27,16 @@ public class Stock {
     private int upVotes; // 찬성 투표 수
 
     private int downVotes; // 반대 투표 수
+
+    public StockInfo toStockInfo(BigDecimal price) {
+        return StockInfo.builder()
+                .id(this.id)
+                .ticker(this.ticker)
+                .name(this.name)
+                .price(price)
+                .recommendationScore(this.recommendationScore)
+                .upVotes(this.upVotes)
+                .downVotes(this.downVotes)
+                .build();
+    }
 }
