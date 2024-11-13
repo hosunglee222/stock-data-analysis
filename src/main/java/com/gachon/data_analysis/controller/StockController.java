@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gachon.data_analysis.common.response.ResponseDto;
 import com.gachon.data_analysis.domain.StockInfo;
 import com.gachon.data_analysis.dto.RecommendStockDTO;
 import com.gachon.data_analysis.dto.StockDTO;
@@ -23,17 +24,17 @@ public class StockController {
     private final StockService stockService;
 
     @GetMapping("/top10")
-    public List<RecommendStockDTO> getTop10Stocks(){
+    public ResponseDto<List<RecommendStockDTO>> getTop10Stocks(){
         List<Stock> stocks = stockService.getTop10Stocks();
 
-        return stocks.stream()
+        return ResponseDto.onSuccess(stocks.stream()
                 .map(RecommendStockDTO::fromEntity)
-                .toList();
+                .toList());
     }
 
     @GetMapping("/search/{stockName}")
-    public StockDTO searchStock(@PathVariable String stockName){
+    public ResponseDto<StockDTO> searchStock(@PathVariable String stockName){
         StockInfo stock = stockService.searchStockInfo(stockName);
-        return StockDTO.fromDomain(stock);
+        return ResponseDto.onSuccess(StockDTO.fromDomain(stock));
     }
 }
