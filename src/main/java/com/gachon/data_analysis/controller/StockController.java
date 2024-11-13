@@ -3,10 +3,12 @@ package com.gachon.data_analysis.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gachon.data_analysis.dto.RecommendStockDTO;
+import com.gachon.data_analysis.dto.StockDTO;
 import com.gachon.data_analysis.entity.Stock;
 import com.gachon.data_analysis.service.StockService;
 
@@ -26,5 +28,10 @@ public class StockController {
         return stocks.stream()
                 .map(RecommendStockDTO::fromEntity)
                 .toList();
+    }
+
+    @GetMapping("/search/{stockName}")
+    public List<StockDTO> searchStock(@PathVariable String stockName){
+        return null;
     }
 }
