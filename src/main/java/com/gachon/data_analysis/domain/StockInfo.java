@@ -33,5 +33,5 @@ public class StockInfo {
 
     private int priceChange; //등락
 
-    private int changePercentage; // 등락 비율
+    private String changePercentage; // 등락 비율
 }
