@@ -18,7 +18,7 @@ public class StockDTO {
     private int downVotes;
     private int currentPrice; //현재가
     private int previousClose; //전일 종가
-    private int priceChange; //등락
+    private String priceChange; //등락폭(원)
     private String changePercentage; // 등락 비율
 
     public static StockDTO fromDomain(StockInfo stock) {

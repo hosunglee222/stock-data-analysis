@@ -32,7 +32,7 @@ public class Stock {
 
     private int previousClose; //전일 종가
 
-    private int priceChange; //등락
+    private String priceChange; //등락(폭)
 
     private String changePercentage; // 등락 비율
 
