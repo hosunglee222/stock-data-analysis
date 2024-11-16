@@ -13,20 +13,26 @@ public class StockDTO {
     private Long id;
     private String ticker;
     private String name;
-    private BigDecimal price;
     private double recommendationScore;
     private int upVotes;
     private int downVotes;
+    private int currentPrice; //현재가
+    private int previousClose; //전일 종가
+    private int priceChange; //등락
+    private String changePercentage; // 등락 비율
 
     public static StockDTO fromDomain(StockInfo stock) {
         return StockDTO.builder()
                 .id(stock.getId())
                 .ticker(stock.getTicker())
                 .name(stock.getName())
-                .price(stock.getPrice())
                 .recommendationScore(stock.getRecommendationScore())
                 .upVotes(stock.getUpVotes())
                 .downVotes(stock.getDownVotes())
+                .currentPrice(stock.getCurrentPrice())
+                .previousClose(stock.getPreviousClose())
+                .priceChange(stock.getPriceChange())
+                .changePercentage(stock.getChangePercentage())
                 .build();
     }
 }
