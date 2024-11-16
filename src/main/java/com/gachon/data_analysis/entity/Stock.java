@@ -46,6 +46,7 @@ public class Stock {
                 .upVotes(this.upVotes)
                 .downVotes(this.downVotes)
                 .currentPrice(this.currentPrice)
+                .previousClose(this.previousClose)
                 .priceChange(this.priceChange)
                 .changePercentage(this.changePercentage)
                 .build();
