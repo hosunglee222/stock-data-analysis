@@ -28,15 +28,26 @@ public class Stock {
 
     private int downVotes; // 반대 투표 수
 
+    private int currentPrice; //현재가
+
+    private int previousClose; //전일 종가
+
+    private int priceChange; //등락
+
+    private int changePercentage; // 등락 비율
+
+
     public StockInfo toStockInfo(BigDecimal price) {
         return StockInfo.builder()
                 .id(this.id)
                 .ticker(this.ticker)
                 .name(this.name)
-                .price(price)
                 .recommendationScore(this.recommendationScore)
                 .upVotes(this.upVotes)
                 .downVotes(this.downVotes)
+                .currentPrice(this.currentPrice)
+                .priceChange(this.priceChange)
+                .changePercentage(this.changePercentage)
                 .build();
     }
 

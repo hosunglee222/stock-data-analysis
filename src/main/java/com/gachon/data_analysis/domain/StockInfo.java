@@ -21,11 +21,17 @@ public class StockInfo {
 
     private String name; // 종목명
 
-    private BigDecimal price;
-
     private double recommendationScore; // 추천 퍼센티지
 
     private int upVotes; // 찬성 투표 수
 
     private int downVotes; // 반대 투표 수
+
+    private int currentPrice; //현재가
+
+    private int previousClose; //전일 종가
+
+    private int priceChange; //등락
+
+    private int changePercentage; // 등락 비율
 }
